@@ -1,5 +1,6 @@
 from ProcessRequest import process_requests
 import time
+import random
 
 class ComProcessor:
 
@@ -17,7 +18,9 @@ class ComProcessor:
         self.command = command
 
         commands = {"time" : "What time is it?",
-                    "request": "Get url content."}
+                    "request" : "Get url content.",
+                    "random" : "Give me a random number."
+                    }
 
     #time-command:
         if command == commands["time"]:
@@ -29,8 +32,12 @@ class ComProcessor:
             html = process_requests(input1, input2, input3, input4)
             return html
 
+        if command == commands["random"]:
+            number = random.randrange(input1, input2)
+            return number
+
 
 if __name__ == "__main__":
     new_processor = ComProcessor()
-    html_text = new_processor.process_command("Get url content.", "https://www.webpagetest.org/", "text")
-    print(html_text)
+    number = new_processor.process_command("Give me a random number.", 1, 100)
+    print(number)
