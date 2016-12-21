@@ -1,5 +1,7 @@
 import subprocess
-from Joke import getRandomJoke
+
+from Modules.Joke import getRandomJoke
+
 
 def say_something(text):
 
